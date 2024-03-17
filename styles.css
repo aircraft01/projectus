@@ -60,7 +60,7 @@ body, html {
 
   .stars {
     position: absolute;
-    top: -50%; /* Adjust vertical position as needed */
+    top: 50%; /* Adjust vertical position as needed */
     left: 50%; /* Adjust horizontal position as needed */
     transform: translate(-50%, -50%);
   }
@@ -74,26 +74,26 @@ body, html {
   }
   
   .star:nth-child(1) {
-    top: -10%; /* Adjust star position as needed */
+    top: 10%; /* Adjust star position as needed */
     left: 20%; /* Adjust star position as needed */
   }
   
   .star:nth-child(2) {
-    top: -20%; /* Adjust star position as needed */
+    top: 20%; /* Adjust star position as needed */
     left: 40%; /* Adjust star position as needed */
   }
   
   .star:nth-child(3) {
-    top: -30%; /* Adjust star position as needed */
+    top: 30%; /* Adjust star position as needed */
     left: 60%; /* Adjust star position as needed */
   }
   
   .star:nth-child(4) {
-    top: -40%; /* Adjust star position as needed */
+    top: 40%; /* Adjust star position as needed */
     left: 80%; /* Adjust star position as needed */
   }
   
   .star:nth-child(5) {
-    top: -50%; /* Adjust star position as needed */
+    top: 50%; /* Adjust star position as needed */
     left: 50%; /* Adjust star position as needed */
   }
