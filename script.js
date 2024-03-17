@@ -1,20 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
   const stars = document.querySelectorAll('.star');
-  
-  stars.forEach((star, index) => {
-    // Randomize initial position
-    const randomDelay = Math.random() * 5; // Random delay for animation start
-    const randomDuration = (Math.random() * 5) + 5; // Random duration for animation
-    star.style.animationDelay = `${randomDelay}s`;
-    star.style.animationDuration = `${randomDuration}s`;
-    star.style.left = `${Math.random() * 100}%`; // Random horizontal position
 
-    star.addEventListener('animationiteration', function() {
-      const randomDelay = Math.random() * 5; // Random delay for animation start
-      const randomDuration = (Math.random() * 5) + 5; // Random duration for animation
-      star.style.animationDelay = `${randomDelay}s`;
-      star.style.animationDuration = `${randomDuration}s`;
-    });
+  stars.forEach(star => {
+    const duration = Math.random() * 5 + 5; // Random duration for animation
+    star.style.animationDuration = `${duration}s`;
 
     star.addEventListener('click', function () {
       star.style.animationPlayState = 'paused';
@@ -23,11 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
       button.addEventListener('click', function () {
         window.location.href = 'star.html'; // Replace 'star.html' with the desired subpage URL
       });
-      star.appendChild(button);
-    });
-
-    star.addEventListener('animationend', function() {
-      this.remove(); // Remove the star when animation ends
+      const textbox = document.createElement('div');
+      textbox.className = 'textbox';
+      textbox.appendChild(button);
+      star.appendChild(textbox);
     });
   });
 });
