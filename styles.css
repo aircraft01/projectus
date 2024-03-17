@@ -15,42 +15,6 @@ body, html {
     background-size: cover;
   }
   
-  .stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .star {
-    width: 50px;
-    height: 50px;
-    background-image: url('star_image.jpg'); /* Replace 'star_image.jpg' with the URL of your star image */
-    position: absolute;
-    animation: moveStar linear infinite;
-  }
-  
-  @keyframes moveStar {
-    from {
-      bottom: 0;
-      left: calc(20% * random());
-      opacity: 1;
-    }
-    to {
-      top: 0;
-      opacity: 0;
-    }
-  }
-
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('background2.jpg');
-    background-size: cover;
-  }
-  
   .content {
     position: relative;
     text-align: center;
@@ -67,3 +31,28 @@ body, html {
     font-size: 24px;
   }
   
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .star {
+    width: 50px;
+    height: 50px;
+    background-image: url('star.jpg'); /* Replace 'star_image.jpg' with the URL of your star image */
+    position: absolute;
+    animation: moveStar linear infinite;
+  }
+  
+  @keyframes moveStar {
+    from {
+      bottom: 0;
+      left: calc(20% * random());
+      opacity: 1;
+    }
+    to {
+      top: 0;
+      opacity: 0;
+    }
+  }
