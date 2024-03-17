@@ -1,5 +1,3 @@
-
-
 body, html {
     margin: 0;
     padding: 0;
@@ -33,6 +31,7 @@ body, html {
   
   .stars {
     position: absolute;
+    bottom: 0; /* Stars start from the bottom */
     width: 100%;
     height: 100%;
   }
@@ -40,19 +39,19 @@ body, html {
   .star {
     width: 50px;
     height: 50px;
-    background-image: url('star.jpg'); /* Replace 'star_image.jpg' with the URL of your star image */
+    background-image: url('star.png'); /* Replace 'star_image.jpg' with the URL of your star image */
     position: absolute;
     animation: moveStar linear infinite;
   }
   
   @keyframes moveStar {
     from {
-      bottom: 0;
-      left: calc(20% * random());
+      bottom: 0; /* Start from the bottom */
       opacity: 1;
     }
     to {
-      top: 0;
+      top: 0; /* End at the top */
       opacity: 0;
     }
   }
+  
