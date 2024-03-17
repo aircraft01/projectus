@@ -6,28 +6,27 @@ body, html {
   }
   
   .background {
-    background-image: url('background2.jpg'); /* Add your background image URL here */
-    background-size: cover;
+    background-color: black; /* Change this to your desired background color */
     width: 100%;
     height: 100%;
+    position: fixed;
+  }
+  
+  .content {
     position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
   }
   
   .title {
-    position: absolute;
-    top: 50px; /* Adjust this value to position the title vertically */
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 24px;
-    font-weight: bold;
-    color: white;
+    margin-top: 20px;
   }
-
+  
   .subtitle {
-    text-align: center;
     font-size: 18px;
-    color: white;
-    margin-top: 10px; /* Adjust as needed */
+    margin-top: 10px;
   }
   
   .stars {
@@ -39,61 +38,21 @@ body, html {
   }
   
   .star {
+    width: 20px;
+    height: 20px;
+    background: transparent;
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
     animation: moveStar 5s linear infinite;
   }
   
   @keyframes moveStar {
     0% {
-      bottom: -10px;
+      bottom: -20px;
       opacity: 1;
     }
     100% {
-      top: -10px;
+      top: -20px;
       opacity: 0;
     }
   }
-
-  .stars {
-    position: absolute;
-    top: 50%; /* Adjust vertical position as needed */
-    left: 50%; /* Adjust horizontal position as needed */
-    transform: translate(-50%, -50%);
-  }
   
-  .star {
-    width: 50px; /* Adjust star size as needed */
-    height: 50px; /* Adjust star size as needed */
-    background-image: url('star.png'); /* Replace 'star_image.jpg' with your star image URL */
-    background-size: cover;
-    position: absolute;
-  }
-  
-  .star:nth-child(1) {
-    top: 10%; /* Adjust star position as needed */
-    left: 20%; /* Adjust star position as needed */
-  }
-  
-  .star:nth-child(2) {
-    top: 20%; /* Adjust star position as needed */
-    left: 40%; /* Adjust star position as needed */
-  }
-  
-  .star:nth-child(3) {
-    top: 30%; /* Adjust star position as needed */
-    left: 60%; /* Adjust star position as needed */
-  }
-  
-  .star:nth-child(4) {
-    top: 40%; /* Adjust star position as needed */
-    left: 80%; /* Adjust star position as needed */
-  }
-  
-  .star:nth-child(5) {
-    top: 50%; /* Adjust star position as needed */
-    left: 50%; /* Adjust star position as needed */
-  }
