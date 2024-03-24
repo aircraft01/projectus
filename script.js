@@ -11,24 +11,28 @@ document.addEventListener('DOMContentLoaded', function () {
     star.style.left = startPosition + 'px';
     starsContainer.appendChild(star);
 
-    const moveUp = () => {
-      const currentBottom = parseInt(getComputedStyle(star).bottom);
-      if (currentBottom > window.innerHeight) {
+    star.addEventListener('click', () => {
+      if (currentStar !== star) { // If this star was not the previously clicked one
         clearInterval(interval);
-        star.remove();
+        const rect = star.getBoundingClientRect();
+        showQuestionPopup(rect.left, rect.top); // Updated to use getBoundingClientRect to get star position
+        currentStar = star;
+        animateStarToBottom(star);
+      } else {
+        // If the same star is clicked again, show the question popup again
+        const rect = star.getBoundingClientRect();
+        showQuestionPopup(rect.left, rect.top); // Updated to use getBoundingClientRect to get star position
+      }
+    });
+
+    const interval = setInterval(() => {
+      const currentBottom = parseInt(getComputedStyle(star).bottom);
+      if (currentBottom >= 0) { // Reached bottom of the page
+        clearInterval(interval);
       } else {
         star.style.bottom = (currentBottom + 1) + 'px';
       }
-    };
-
-    star.addEventListener('click', () => {
-      clearInterval(interval);
-      const rect = star.getBoundingClientRect();
-      showQuestionPopup(rect.left, rect.top); // Updated to use getBoundingClientRect to get star position
-      currentStar = star;
-    });
-
-    const interval = setInterval(moveUp, 10);
+    }, 10);
   }
 
   function showQuestionPopup(x, y) {
@@ -45,9 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', function (event) {
     if (event.target === document.body) {
       hideQuestionPopup();
-      if (currentStar) {
-        currentStar.style.animationPlayState = 'running';
-      }
+      currentStar = null; // Reset currentStar when clicking outside
     }
   });
 
@@ -61,4 +63,15 @@ function navigateToSubpage() {
 function hideQuestionPopup() {
   const questionPopup = document.getElementById('questionPopup');
   questionPopup.style.display = 'none';
+}
+
+function animateStarToBottom(star) {
+  const interval = setInterval(() => {
+    const currentBottom = parseInt(getComputedStyle(star).bottom);
+    if (currentBottom >= 0) { // Reached bottom of the page
+      clearInterval(interval);
+    } else {
+      star.style.bottom = (currentBottom + 1) + 'px';
+    }
+  }, 10);
 }
