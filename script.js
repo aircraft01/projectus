@@ -1,30 +1,35 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const starsContainer = document.querySelector('.stars');
+// Function to navigate to subpage
+function navigateToSubpage() {
+  window.location.href = "subpage.html"; // Change "subpage.html" to your subpage URL
+}
 
-  // Define fixed animation durations and delays for each star
-  const animationDurations = [7, 9, 6, 8, 10]; // in seconds
-  const animationDelays = [0, 1, 2, 3, 4]; // in seconds
+// Create stars
+function createStar() {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.left = Math.random() * window.innerWidth + 'px';
+  document.body.appendChild(star);
 
-  // Create stars dynamically
-  for (let i = 0; i < 5; i++) {
-    const star = document.createElement('div');
-    star.className = 'star';
-    star.style.animationDuration = `${animationDurations[i % animationDurations.length]}s`;
-    star.style.animationDelay = `${animationDelays[i % animationDelays.length]}s`;
-    starsContainer.appendChild(star);
+  // Move star upwards
+  const moveUp = () => {
+    const currentBottom = parseInt(getComputedStyle(star).bottom);
+    if (currentBottom > window.innerHeight) {
+      clearInterval(interval);
+      star.remove();
+    } else {
+      star.style.bottom = (currentBottom + 1) + 'px';
+    }
+  };
 
-    star.addEventListener('click', function () {
-      star.style.animationPlayState = 'paused';
-      const button = document.createElement('button');
-      button.innerText = 'Question';
-      button.addEventListener('click', function () {
-        window.location.href = 'star.html'; // Replace 'star.html' with the desired subpage URL
-      });
-      const textbox = document.createElement('div');
-      textbox.className = 'textbox';
-      textbox.appendChild(button);
-      star.appendChild(textbox);
-    });
-  }
-});
+  // Add event listener to stop star and show question popup
+  star.addEventListener('click', () => {
+    clearInterval(interval);
+    document.getElementById('questionPopup').style.display = 'block';
+  });
+
+  const interval = setInterval(moveUp, 10);
+}
+
+// Create stars periodically
+setInterval(createStar, 2000); // Adjust timing as needed
 
