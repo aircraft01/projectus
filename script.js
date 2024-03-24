@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function createStar() {
     const star = document.createElement('div');
     star.classList.add('star');
-    star.style.left = Math.random() * window.innerWidth + 'px';
+    const startPosition = Math.random() * (window.innerWidth - 20); // Adjusted for star width
+    star.style.left = startPosition + 'px';
     starsContainer.appendChild(star);
 
     const moveUp = () => {
@@ -22,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     star.addEventListener('click', () => {
       clearInterval(interval);
-      showQuestionPopup(star.offsetLeft, star.offsetTop);
+      const rect = star.getBoundingClientRect();
+      showQuestionPopup(rect.left, rect.top); // Updated to use getBoundingClientRect to get star position
       currentStar = star;
     });
 
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function showQuestionPopup(x, y) {
     questionPopup.style.display = 'block';
     questionPopup.style.left = x + 'px';
-    questionPopup.style.top = y + 'px';
+    questionPopup.style.top = (y - questionPopup.offsetHeight) + 'px'; // Adjusted to position above the star
   }
 
   yesButton.addEventListener('click', function () {
