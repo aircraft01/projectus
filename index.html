@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reaching for the Stars</title>
+  <title>Get inspired</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <div class="background"></div>
   <div class="content">
-    <h1 class="title">Hi, curious about what's next?</h1>
-    <h2 class="subtitle">Let's spice things up and catch some stars as we peek into the future.</h2>
-   
-   
-    <div class="stars"></div>
-<div id="questionPopup">
-  <p>Do you want to proceed?</p>
-  <button id="yesButton">Explore</button>
-</div>
+    <h1 class="title">What now?</h1>
+    <h2 class="subtitle"></h2>
   </div>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Enter a keyword or get inspired below">
+    <button id="searchButton">Search</button>
+  </div>
+
+  <!-- Memory cards -->
+  <div class="memory-cards">
+    <div class="memory-card" data-question="What is the capital of France?" data-answer="Paris">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Click to reveal</p>
+        </div>
+        <div class="card-back">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div class="memory-card" data-question="What is the largest planet in our solar system?" data-answer="Jupiter">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Click to reveal</p>
+        </div>
+        <div class="card-back">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more memory cards here -->
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
