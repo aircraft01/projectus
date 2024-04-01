@@ -111,7 +111,11 @@ body, html {
   border-color: #5e5c7e;
   color: #ccc;
 }
+.search-container button {
+  display: none; /* Hide the button */
+}
 
+/*
 .search-container button {
   position: absolute;
   right: 0;
@@ -120,9 +124,9 @@ body, html {
   background-color: #ccc;
   border: none;
   border-radius: 20px;
-  padding: 10px 20px; /* Adjust padding */
+  padding: 10px 20px; 
   cursor: pointer;
-  font-size: 16px; /* Adjust font size */
+  font-size: 16px; 
   color: black;
 }
 
@@ -130,3 +134,4 @@ body, html {
   background-color: #000000;
   color: #ccc;
 }
+*/
