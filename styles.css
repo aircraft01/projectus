@@ -129,19 +129,21 @@ body, html {
   top: 50%;
   transform: translateY(-50%);
   background-color: #5d5b78;
-  color: white;
+
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
-  background-color: rgba(104, 101, 144, 0.8); /* Adjust the opacity value (0.8) as needed */
-
+  background-color: rgb(255, 255, 255); /* Adjust the opacity value (0.8) as needed */
+  color: #1f1e2e;
 
 }
 
 .search-container button:hover {
   /*background-color: #1f1e2e;*/
-  color: #1f1e2e;
-  background-color: rgba(205, 204, 255, 0.8); /* Adjust the opacity value (0.8) as needed */
-
+ 
+  border-radius: 20px;
+  border: 2px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.8); /* Adjust the opacity value (0.8) as needed */
+  color: #ccc;
 }
