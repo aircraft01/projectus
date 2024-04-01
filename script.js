@@ -29,20 +29,22 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   cards.forEach(card => {
-    card.addEventListener('click', function () {
-      if (currentCard !== card) {
-        currentCard = card;
-        const rect = card.getBoundingClientRect();
-        showQuestionPopup(rect.left, rect.top);
-      } else {
-        const rect = card.getBoundingClientRect();
-        showQuestionPopup(rect.left, rect.top);
-      }
-    });
+    card.addEventListener('click', toggleCard);
+    card.addEventListener('touchstart', toggleCard);
   });
+
+  function toggleCard(event) {
+    const card = event.currentTarget;
+    if (currentCard !== card) {
+      currentCard = card;
+      const rect = card.getBoundingClientRect();
+      showQuestionPopup(rect.left, rect.top);
+    } else {
+      const rect = card.getBoundingClientRect();
+      showQuestionPopup(rect.left, rect.top);
+    }
+  }
 
   setInterval(createStar, 2000);
 });
-
-
 
