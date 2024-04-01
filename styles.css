@@ -99,26 +99,28 @@ body, html {
   margin: 0 auto; /* Center the search container horizontally */
   width: 50%; /* Adjust the width as needed */
   text-align: center; /* Center the search input and button */
+  color: #1f1e2e;
 
 }
 
 .search-container input[type="text"] {
-  width: 10%; /* Adjust the width of the input */
-}
-
-
-
-.search-container input[type="text"] {
+  background-color: rgba(219, 217, 247, 0.8); /* Adjust the opacity value (0.8) as needed */
   width: 100%;
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 20px;
   font-size: 16px;
+  color: #1f1e2e;
   outline: none;
+
 }
+
+
 
 .search-container input[type="text"]:focus {
   border-color: #5e5c7e;
+  color: #1f1e2e;
+
 }
 
 .search-container button {
@@ -132,9 +134,14 @@ body, html {
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
+  background-color: rgba(31, 30, 46, 0.8); /* Adjust the opacity value (0.8) as needed */
+
 
 }
 
 .search-container button:hover {
-  background-color: #1f1e2e;
+  /*background-color: #1f1e2e;*/
+  color: #1f1e2e;
+  background-color: rgba(84, 83, 111, 0.8); /* Adjust the opacity value (0.8) as needed */
+
 }
