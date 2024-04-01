@@ -15,14 +15,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function filterCards() {
     const searchTerm = searchInput.value.toLowerCase();
+    let foundMatchingCard = false; // Flag to track if at least one matching card is found
+
     cards.forEach(card => {
       const keywords = card.getAttribute('data-keywords').toLowerCase();
       if (keywords.includes(searchTerm)) {
         card.style.display = 'block';
+        foundMatchingCard = true;
       } else {
         card.style.display = 'none';
       }
     });
+
+    if (!foundMatchingCard) {
+      // Show a message indicating no matching cards were found
+      // You can replace this with your own logic, such as displaying an element with a message
+      console.log('No matching cards found');
+    }
   }
 
   cards.forEach(card => {
@@ -43,4 +52,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   setInterval(createStar, 2000);
+  
+  searchInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      filterCards();
+    }
+  });
 });
