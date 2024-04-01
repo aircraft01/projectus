@@ -1,32 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const starsContainer = document.querySelector('.stars');
-  const questionPopup = document.getElementById('questionPopup');
-  const yesButton = document.getElementById('yesButton');
   const cards = document.querySelectorAll('.memory-card');
-  
-  let currentStar = null;
   let currentCard = null;
 
   const content = document.querySelector('.content');
+  const searchInput = document.getElementById('searchInput');
 
   content.addEventListener('scroll', function () {
-    // Adjust the background position based on content scroll position
     const scrollTop = content.scrollTop;
     const scrollLeft = content.scrollLeft;
     document.querySelector('.background').style.backgroundPosition = `-${scrollLeft}px -${scrollTop}px`;
   });
 
-  const searchTerm = this.value.toLowerCase();
-  const memoryCards = document.querySelectorAll('.memory-card');
+  searchInput.addEventListener('input', filterCards);
 
-  memoryCards.forEach(function(card) {
-    const keywords = card.getAttribute('data-keywords').toLowerCase();
-    if (keywords.includes(searchTerm)) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
+  function filterCards() {
+    const searchTerm = searchInput.value.toLowerCase();
+    cards.forEach(card => {
+      const keywords = card.getAttribute('data-keywords').toLowerCase();
+      if (keywords.includes(searchTerm)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
 
   cards.forEach(card => {
     card.addEventListener('click', toggleCard);
@@ -47,4 +44,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setInterval(createStar, 2000);
 });
-

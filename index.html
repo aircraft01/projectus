@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>what now</title>
+  <title>What Now?</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="background"></div>
+  <div class="background" aria-hidden="true"></div>
   <div class="content">
-    <h1 class="title">What now?</h1>
+    <h1 class="title">What Now?</h1>
     <h2 class="subtitle"></h2>
   </div>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="seek keywords">
-    <button id="searchButton">go</button>
+  <div class="search-container" role="search">
+    <input type="text" id="searchInput" placeholder="Seek Keywords" aria-label="Search Keywords">
+    <button id="searchButton" aria-label="Search">Go</button>
   </div>
 
   <!-- Memory cards -->
-  <div class="memory-cards">
-    <div class="memory-card" data-question="What is the capital of France?" data-answer="Paris">
+  <div class="memory-cards" role="list">
+    <div class="memory-card" data-question="What is the capital of France?" data-answer="Paris" role="listitem">
       <div class="card-inner">
-        <div class="card-front">
+        <div class="card-front" tabindex="0" aria-label="Click to reveal">
           <p>Topic</p>
         </div>
-        <div class="card-back">
+        <div class="card-back" aria-hidden="true">
           <p>Answer</p>
         </div>
       </div>
     </div>
-    <div class="memory-card" data-question="What is the largest planet in our solar system?" data-answer="Jupiter">
+    <div class="memory-card" data-question="What is the largest planet in our solar system?" data-answer="Jupiter" role="listitem">
       <div class="card-inner">
-        <div class="card-front">
+        <div class="card-front" tabindex="0" aria-label="Click to reveal">
           <p>Click to reveal</p>
         </div>
-        <div class="card-back">
+        <div class="card-back" aria-hidden="true">
           <p></p>
         </div>
       </div>
@@ -48,5 +46,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
